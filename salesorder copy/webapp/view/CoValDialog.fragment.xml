@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class ="log" title="Characterstics Values">
+     <content>
+      <VBox>
+  <SearchField    liveChange="onSearchingforCopy"  />
+    <table:TreeTable
+        id="tab6"
+        rows="{path: '/res', parameters: {arrayNames:['children']}, expand: 'RelationSet, WorkingTimeSet'}"
+        enableSelectAll="false"
+        selectionMode="Single"
+        selectionBehavior="RowSelector">
+        
+        <table:columns>
+            <table:Column label=" Unique Characterstics">
+                <table:template>
+                    <HBox>
+                        <Text text="{CHARVAL_NUM}" visible="true"/>
+                          <RadioButtonGroup visible="{child}">
+                            <RadioButton text="{des}" selected="{Selection}" visible="true" select="onSelectRadioButton" />
+                        </RadioButtonGroup>
+                    </HBox>
+                </table:template>
+            </table:Column>
+            
+            <!-- <table:Column label="Characterstic Values">
+                <table:template>
+                    <HBox>
+                        <RadioButtonGroup visible="{child}">
+                            <RadioButton text="{des}" selected="{Selection}" visible="true" select="onSelectRadioButton" />
+                        </RadioButtonGroup>
+                    </HBox>
+                </table:template>
+            </table:Column> -->
+        </table:columns>
+    </table:TreeTable>
+</VBox>
+
+</content>
+ <beginButton>
+ <Button text="Select" id="CreateB" type="Accept"  press ="onValSelect" ></Button>
+          </beginButton>
+ <endButton>
+ <Button text="close" type="Reject"   press ="GetClose" id="idSonardlg" ></Button>
+</endButton>
+</Dialog>
+</core:FragmentDefinition>

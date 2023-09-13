@@ -1,0 +1,39 @@
+<mvc:View xmlns:semantic="sap.m.semantic" xmlns:table="sap.ui.table" controllerName="salesorder.controller.Details"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"  xmlns:tnt="sap.tnt">
+     <Page  >
+          <VBox  >
+                <OverflowToolbar class="sapFDynamicPageAlignContent">
+					<ToolbarSpacer/>
+					<SearchField width="55.5rem"  liveChange="handleChangeSearch"  />
+          <Button text="Create Order"  press="CreateOrder"></Button>
+				</OverflowToolbar>
+          <Table  id="Details"   items="{
+                    path: '/items'
+                    
+                }" >  
+          <columns>
+            <Column > <Text id="CHARVAL_NUM" class= "ALETTER" text="Characterstics Name" ></Text></Column>
+            <Column > <Text  id="CHAR_NUM_VAL_DES"  class= "ALETTER" text="Characterstic Value"></Text></Column>
+          </columns>
+          <items>
+            <ColumnListItem type="Active"  press="OnProfieo"  >  
+            <cells>
+            <VBox >
+            <Text  text="{CHARVAL_NUM}" class="DetailsHead"></Text> 
+            <Text  text="{CHARVAL_NUM}" class="DetailsFont"></Text> 
+            
+            </VBox>
+            <VBox >
+            <Text   text="{CHAR_NUM_VAL_DES}"  class="DetailsHead"></Text>
+                <Text   text="{CHAR_NUM_VAL_DES}"  class="DetailsFont"></Text>
+            </VBox>
+              
+              
+              </cells>
+            </ColumnListItem>
+          </items>
+          </Table>
+          </VBox>
+          </Page>
+    </mvc:View>

@@ -1,0 +1,77 @@
+<core:FragmentDefinition xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class="CreateDialog" title="Create Unique Characterstics" >
+    <VBox >
+      <f:SimpleForm >
+        	<f:content>
+        <Label text="Confirguable Product"/>
+        <Input  id="ID" type= "Text" enabled="false"/>
+
+         <!-- <Label text="Unique Type"/>
+        <Input   id="Utype" type="Text" enabled="true" /> -->
+         <!-- </VBox> -->
+        <!-- <VBox> -->
+        <Label text="Unique Type" ></Label>
+         <ComboBox xmlns="sap.m" id="box1" selectionChange="Require">
+         <items>
+         <core:Item xmlns:core="sap.ui.core" key="P" 
+           text="P"  id="Utype"/>
+         <core:Item xmlns:core="sap.ui.core" key="U" 
+           text="U" id="item1"/>
+         </items>
+         </ComboBox>
+         <!-- </VBox> -->
+
+        <Label text="Active"/>
+        <Input  id="act" type="Text" enabled="false" />
+
+        <Label text="Unique Description"/>
+        <Input  id="Descr" type="Text" />
+
+        	</f:content>
+    </f:SimpleForm>
+    </VBox>
+  
+    <content>
+
+<HBox justifyContent="End">
+ <Button  icon="sap-icon://add" press="OnAdd"></Button>
+</HBox>       
+         <Table  id="tab3"
+     
+             items="{
+                    path: '/items'
+                }"
+             >
+          <columns>
+            <Column > <Text id="CHAR" class= "ALETTER" text="Characterstics Name" ></Text></Column>
+            <Column > <Text  id="NUM"  class= "ALETTER" text="Characterstic Value"></Text></Column>
+            <Column ><Text text="delete"  ></Text></Column>
+          </columns>
+          <items>
+            <ColumnListItem  type="Active"  >  
+            <cells>
+              <Text  text="{CHARVAL_NUM}"></Text> 
+              <Text   text="{description}"></Text>
+               <core:Icon size="2em" src="sap-icon://decline"  press="onDelete" />
+              </cells>
+            </ColumnListItem>
+          </items>
+          </Table>
+        </content>
+        <Label text=""/>
+        <beginButton>
+        <Button  id="btn" text="Save" type="Accept" press="OnSave"></Button>
+        </beginButton>
+        <endButton>
+        <Button text="close" type="Reject" press="onCancel"></Button>
+        </endButton>
+        
+      
+        
+</Dialog>
+</core:FragmentDefinition>

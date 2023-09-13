@@ -1,0 +1,88 @@
+<core:FragmentDefinition
+xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class ="log" title=" Unique Characterstics ">
+    <content >
+          <VBox>
+              <SearchField   liveChange ="onSearching"  />
+    <table:TreeTable
+        id="table2"
+        enableSelectAll="false"
+        
+        selectionMode="Single"
+        selectionBehavior="RowSelector"
+        rows="{path: '/aItems', parameters: {arrayNames:['childrens']}, expand: 'RelationSet, WorkingTimeSet',  events: {
+            change: '.onTreeChange'
+          }}"
+    >
+        <table:columns >
+            <table:Column label="Characterstic Name ">
+                <table:template>
+                    <HBox>
+                        <!-- <CheckBox  selected="{selection}" visible="{parent}"   /> -->
+                  
+                        <Text text="{CHARVAL_NUM}" visible="true"/>
+                         <RadioButtonGroup visible="{child}">
+                                <RadioButton text="{description}" selected="{selection}"  visible="true"  select="Radiobtn" />
+                        </RadioButtonGroup>
+                    </HBox>
+                </table:template>
+            </table:Column>
+        </table:columns>
+    </table:TreeTable>
+</VBox>
+    </content>
+    <beginButton>
+    <Button text="Select" id="CreateB" type="Accept"  press ="onSelect" ></Button>
+    </beginButton>
+    <endButton>
+    
+          <Button text="close" type="Reject"   press ="onClose" id="idSonardlg" ></Button>
+    </endButton>
+          
+    
+</Dialog>
+</core:FragmentDefinition>
+<!-- 
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="select"
+		title="Products"
+		items="{path:'/aItems'}"
+		selectionChange="RequireProduct"
+		search=".onValueHelpDialogSearch"
+		confirm=".onValueHelpDialogClose"
+		cancel=".onValueHelpDialogClose">
+		<StandardListItem
+			title="{CHAR_NUM}"
+			description="{CHAR_NUM}" />
+	</SelectDialog>
+</core:FragmentDefinition> -->
+
+
+	<!-- <VBox >
+	<Table  id="tab2"
+             mode="MultiSelect"
+              sticky="ColumnHeaders"
+          	items="{path:'/aItems'}"
+             >
+          <columns>
+            <Column > <Text id="CHARVAL_NUM" class= "ALETTER" text="Characterstics Name" ></Text></Column>
+            <Column > <Text  id="CHAR_NUM_VAL_DES"  class= "ALETTER" text="Characterstic Value"></Text></Column>
+          </columns>
+          <items>
+          
+            <ColumnListItem   >  
+            <cells>
+              <Text  text="{CHARVAL_NUM}"></Text> 
+             <Text   text="{CHAR_NUM_VAL_DES}"></Text>
+              </cells>
+            </ColumnListItem>
+          </items>
+          </Table>
+          </VBox> -->
+

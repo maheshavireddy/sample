@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog id="DetailsForm" >
+    <content>
+		<f:SimpleForm id="Form">
+        <f:content>
+        <core:Title text="Save"/>
+       
+         <Label text="Name"/>
+        <Input placeholder="Enter Employee Name"  id="NAME" type="Text"  />
+       
+    
+        <Label text=""/>
+        <Button  id="btn" text="Save" type="Accept" press="OnSave"></Button>
+        <Button text="close" type="Reject" press="onCancel"></Button>
+        </f:content>
+        </f:SimpleForm>
+        </content>
+</Dialog>
+</core:FragmentDefinition>

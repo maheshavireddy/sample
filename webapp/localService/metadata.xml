@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Interactions_Header" EntityType="CatalogService.Interactions_Header">
+                    <NavigationPropertyBinding Path="ITEMS" Target="Interactions_Items"/>
+                </EntitySet>
+                <EntitySet Name="Interactions_Items" EntityType="CatalogService.Interactions_Items">
+                    <NavigationPropertyBinding Path="INTHeader" Target="Interactions_Header"/>
+                </EntitySet>
+                <EntitySet Name="Interaction_students" EntityType="CatalogService.Interaction_students"/>
+                <FunctionImport Name="validation" Function="CatalogService.validation"/>
+                <FunctionImport Name="validator" Function="CatalogService.validator"/>
+                <FunctionImport Name="validate" Function="CatalogService.validate"/>
+            </EntityContainer>
+            <EntityType Name="Interactions_Header">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <NavigationProperty Name="ITEMS" Type="Collection(CatalogService.Interactions_Items)" Partner="INTHeader">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="PARTNER" Type="Edm.String"/>
+                <Property Name="BPCOUNTRY" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Interactions_Items">
+                <Key>
+                    <PropertyRef Name="INTHeader_ID"/>
+                    <PropertyRef Name="TEXT_ID"/>
+                </Key>
+                <NavigationProperty Name="INTHeader" Type="CatalogService.Interactions_Header" Partner="ITEMS">
+                    <ReferentialConstraint Property="INTHeader_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="INTHeader_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="TEXT_ID" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="LANGU" Type="Edm.String" MaxLength="2"/>
+                <Property Name="LOGTEXT" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Interaction_students">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="NAME" Type="Edm.String"/>
+                <Property Name="Salary" Type="Edm.String"/>
+                <Property Name="Number" Type="Edm.Int32"/>
+                <Property Name="Department" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="return_CatalogService_validation">
+                <Property Name="message" Type="Edm.String"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_validator">
+                <Property Name="message" Type="Edm.String"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_validate">
+                <Property Name="message" Type="Edm.String"/>
+            </ComplexType>
+            <Function Name="validation" IsBound="false" IsComposable="false">
+                <Parameter Name="flag" Type="Edm.String"/>
+                <Parameter Name="Obj" Type="Edm.String"/>
+                <ReturnType Type="CatalogService.return_CatalogService_validation"/>
+            </Function>
+            <Function Name="validator" IsBound="false" IsComposable="false">
+                <Parameter Name="flag" Type="Edm.String"/>
+                <Parameter Name="Obj" Type="Edm.String"/>
+                <ReturnType Type="CatalogService.return_CatalogService_validator"/>
+            </Function>
+            <Function Name="validate" IsBound="false" IsComposable="false">
+                <Parameter Name="flag" Type="Edm.String"/>
+                <Parameter Name="Obj" Type="Edm.String"/>
+                <ReturnType Type="CatalogService.return_CatalogService_validate"/>
+            </Function>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

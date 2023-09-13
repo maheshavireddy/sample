@@ -1,0 +1,127 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" controllerName="salesorder.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+   xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+   
+    xmlns:f="sap.f" >
+    <Page title="Unique Characterstics" >
+    <uxap:ObjectPageLayout >
+    
+    <uxap:headerTitle>
+    	<uxap:ObjectPageDynamicHeaderTitle >
+      <uxap:expandedHeading>
+
+      <Title textAlign="Right" text="Standard"></Title>
+      </uxap:expandedHeading>
+  
+      </uxap:ObjectPageDynamicHeaderTitle>
+   
+    </uxap:headerTitle>
+    
+    <uxap:headerContent>
+    <HBox class="inputContainer" >
+    <VBox >
+    <Label text="Unique Characterstics Search" design="Bold" ></Label>
+    <SearchField  width="15.5rem"  liveChange="onSearch" placeholder="Unique_ID/Unique_Des" class="UCS" />
+    <!-- <Label text="Search" design="Bold"/>   -->
+    <!-- <Input width="auto" placeholder="Type To Search" id="input" liveChange="onSearch"/> -->
+    </VBox>
+    <VBox >
+      <Label text="Confirguable Product"></Label>
+			<Input
+          class="CP" 
+			id="productInput"
+         type="Text"
+			textFormatMode="KeyValue"
+			placeholder="Enter product"
+			showSuggestion="true"
+			showValueHelp="true"
+      
+			valueHelpRequest=".onValueHelpRequest"
+         suggestionItems="{path: '/items'}">
+			<suggestionItems>
+				<core:Item text="{ PRODUCT_ID }" />
+			</suggestionItems>
+         <core:Item xmlns:core="sap.ui.core" key="PRODUCT_ID"></core:Item>
+		</Input>
+   
+   </VBox>
+        <VBox>
+        <Label text="Unique Type" ></Label>
+         <ComboBox xmlns="sap.m" id="box0" selectionChange="RequireUnique"   class="UT" selectedKey="All"  >
+    <items>
+      <core:Item xmlns:core="sap.ui.core"  key="All" 
+           text="All"  id="item"/>
+      <core:Item xmlns:core="sap.ui.core" key="P" 
+           text="P"  id="item0"/>
+      <core:Item xmlns:core="sap.ui.core" key="U" 
+           text="U" id="item1"/>
+    </items>
+   </ComboBox>
+      
+      </VBox  >
+      <HBox class="BOX">
+       <Button text="Go" type="Emphasized" press="onGo" class="BT1" ></Button>
+      <Button text="Create" type="Emphasized" press="onClick"  class="BT1"     ></Button>
+      <Button text="Copy" type="Emphasized" press="onBrowse" class="BT1"    ></Button>
+      </HBox>
+       
+        </HBox>
+        
+    </uxap:headerContent>
+    <uxap:sections>
+    <uxap:ObjectPageSection >
+    <uxap:ObjectPageSubSection >
+   <VBox fitContainer="true">
+				 <Table  id="tab1"
+             mode="SingleSelectMaster"
+             selectionChange="onDetails"            
+             items="{
+                    path: '/aItems',
+                    sorter: {
+                        path: 'ID',
+                        descending: false
+                        
+                    }
+                }"
+             >
+                 <columns>
+          <Column >
+          <Text text="{i18n>col1}" id="UnitDes1"></Text>
+          
+          </Column>
+             <Column >
+          <Text text="{i18n>col2}"></Text>
+          </Column>
+             <Column >
+          <Text text="{i18n>col3}"></Text>
+          </Column>
+          
+          </columns>
+             <items>
+          <ColumnListItem type="Active" press=" onDetails" >
+          <cells>
+          <!-- <Text  text="{UNIQUE_DES}"></Text> -->
+            <VBox>
+            <Text text="{ID}" />
+            <Text text="{UNIQUE_DES}" class="FontText" />
+          </VBox>
+         
+           <Text  text="{UID_TYPE}"></Text>
+           <Switch    state="{ACTIVE}" change="onChangeBolean" ></Switch>
+          </cells>
+          </ColumnListItem>
+          </items>
+				  </Table>
+			</VBox>
+    </uxap:ObjectPageSubSection>
+  
+    </uxap:ObjectPageSection>
+    </uxap:sections>
+    </uxap:ObjectPageLayout>
+    </Page>
+</mvc:View>
+
+
+
+

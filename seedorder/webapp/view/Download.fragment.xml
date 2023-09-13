@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class="Download Dialog" title=" Download Template " >
+    <content>
+    <f:SimpleForm >
+    <f:content>
+      <Label text= 'Select Date Range'  labelFor="DRS3"/>
+		<DateRangeSelection
+      width="80%"
+			id="DRS3"
+			class="DRS3"
+         displayFormat="MM/dd/yyyy"
+			value= "{
+				'type': 'sap.ui.model.type.DateInterval',
+				'formatOptions': {
+					'pattern': 'yyyy/MM/dd'
+				},
+				'parts': [
+					{
+						'type': 'sap.ui.model.type.Date',
+						'path': '/start'
+					},
+					{
+						'type': 'sap.ui.model.type.Date',
+						'path': '/end'
+					}
+				]
+			}"
+			change="handleChange"/>
+</f:content>
+    </f:SimpleForm>
+        </content>
+        <Label text=""/>
+        <beginButton>
+         <Button   text="Download" type="Accept" press="onDownLoad"></Button>
+        </beginButton>
+        <endButton>
+          <Button text="close" type="Reject" press="Cancel"></Button>
+        </endButton>
+       
+      
+        
+</Dialog>
+</core:FragmentDefinition>

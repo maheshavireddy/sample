@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class="ValidForm" title="Excel data" >
+    <content>   
+    <HeaderContainer >
+    <VBox  >
+      <Label text="Type" ></Label>
+         <ComboBox xmlns="sap.m" id="box0" selectionChange="onSelect" class="CMBVAL" selectedKey="All" >
+    <items>
+      <core:Item xmlns:core="sap.ui.core"  key="All" 
+           text="All"  id="item"/>
+      <core:Item xmlns:core="sap.ui.core" key="Valid" 
+           text="Valid"  id="item0"/>
+      <core:Item xmlns:core="sap.ui.core" key="InValid" 
+           text="InValid" id="item1"/>
+    </items>
+   </ComboBox>
+    </VBox>
+    <VBox >
+    <Label text="Reasons" ></Label>
+    	<Input
+          class="CMBVAL1"
+			id="Reason"
+               type="Text"
+			textFormatMode="KeyValue"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueforReason"
+         suggestionItems="{path: '/items'}">
+			<suggestionItems>
+				<core:Item text="{ Reason }" />
+			</suggestionItems>
+         <core:Item xmlns:core="sap.ui.core" key="Reason"></core:Item>
+		</Input>
+
+    </VBox>
+    </HeaderContainer>   
+
+   <Table id="Frg"   inset="false" growing="true" growingScrollToLoad="true" alternateRowColors="true"    />
+
+        </content>   
+           <Label text=""/>
+        <beginButton>
+         <Button   text="Ok" type="Emphasized" press="onOk"></Button>
+        </beginButton>
+     
+</Dialog>
+</core:FragmentDefinition>

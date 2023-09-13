@@ -1,0 +1,43 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class="CreateDialog" title="Create Seed Order" >
+    <content>
+    <f:SimpleForm >
+    <f:content>
+        <Label text="Confirguable Product"/>
+        <Input  id="Product" type= "Text" enabled="false"/>
+
+        
+
+        <Label text="Unique_ID"/>
+        <Input  id="Unique_Id" type="Text"  enabled="false"/>
+
+        <Label text=" Order Quantity"/>
+        <Input  id="Quant" type="Number" />
+
+        <Label text="Material Availability Date" labelFor="DP1"/>
+				<DatePicker
+					id="DP1"
+        
+					placeholder="Enter Date"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"/>
+</f:content>
+    </f:SimpleForm>
+        </content>
+        <Label text=""/>
+        <beginButton>
+         <Button  id="btn" text="Save" type="Accept" press="CreateSeedOrder"></Button>
+        </beginButton>
+        <endButton>
+          <Button text="close" type="Reject" press="onReject"></Button>
+        </endButton>
+       
+      
+        
+</Dialog>
+</core:FragmentDefinition>

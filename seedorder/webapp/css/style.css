@@ -1,0 +1,70 @@
+/* Enter your custom styles here */
+
+.inputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+  }
+  .S1{
+    margin-right: 15px;
+  }
+  .BOX{
+    align-items: stretch;
+    margin-right: 20px;
+    margin-top: 36px;
+    margin-left: 35px;
+    /* margin-left: 25px; */
+}
+
+.BT1{
+    margin-left: 5px;
+}
+.BT{
+    margin-left: 70%;
+    gap: 1rem;
+    /* margin-bottom: 10%; */
+}
+
+.Tab{
+  margin-bottom: 100%;
+}
+.Emp input[type="file"]{
+  display: none;
+  color: #007BFF;
+    /* color: white; */
+    /* border-color: #007BFF; */
+
+}
+.Success {
+  /* background-color: green; */
+  color: green;
+  
+  
+  /* border-style: solid;
+  border-color: green;
+  border-width: 2px; */
+  /* margin: 2px;
+   */
+   /* padding: 5px;
+   border-radius: 5px; */
+}
+
+.Failed {
+  /* background-color: red; */
+  color: red;
+  /* border-style: solid;
+  border-color: red;
+  border-width: 2px; */
+  
+}
+.CMBVAL{
+  margin-left: 100%;
+}
+
+.CMBVAL1{
+  /* margin-left: 100%; */
+  margin-top: 2px;
+}

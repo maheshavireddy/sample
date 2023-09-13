@@ -1,0 +1,21 @@
+/* Enter your custom styles here */
+
+.fixFlexFixedSize > .sapUiFixFlexFixed {
+	background: #D7E9FF;
+}
+
+.fixFlexFixedSize > .sapUiFixFlexFlexible {
+	background: #A9CFFF;
+}
+
+.fixFlexFixedSize .sapMText {
+	margin-bottom: 1rem;
+}
+
+
+.stable {
+	/* top:0; */
+	margin-left: 800px;
+	padding: 10%;
+	position: fixed;
+}

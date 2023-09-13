@@ -1,0 +1,184 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" controllerName="seedorder.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+      xmlns:unified="sap.ui.unified"
+   xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+   
+    xmlns:f="sap.f" >
+    <Page title="Seed Order Creations" titleAlignment="Center"  >
+    <!-- <Button text="Get Log Error " type="Emphasized"></Button> -->
+    <uxap:ObjectPageLayout >
+    
+    <uxap:headerTitle>
+    	<uxap:ObjectPageDynamicHeaderTitle >
+      <uxap:expandedHeading>
+
+      <Title textAlign="Right" text="Standard"></Title>
+      </uxap:expandedHeading>
+  
+      </uxap:ObjectPageDynamicHeaderTitle>
+   
+    </uxap:headerTitle>
+    
+    <uxap:headerContent>
+    <HBox class="inputContainer" >
+    <HBox  >
+    <VBox class="S1" >
+    <Label text="Unique ID/Seed Order" design="Bold" ></Label>
+    <SearchField id="S1" width="15.5rem"  liveChange="onSearch" class="UCS" />
+    </VBox>
+    <!-- <VBox >
+     <Label text="Location" design="Bold" ></Label>
+    <SearchField  width="15.5rem"  liveChange="onSearch1" class="UCS" />
+    </VBox> -->
+   
+    </HBox>
+    <VBox >
+    <HBox >
+    <VBox class="S1" >
+      <Label text="Confirguable Product" required="true" design="Bold"  class="UCS"></Label>
+			<Input
+          class="CP" 
+          width="15.5rem"
+			id="productInput"
+         type="Text"
+			textFormatMode="KeyValue"
+			placeholder="Enter product"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequest"
+         suggestionItems="{path: '/items'}">
+			<suggestionItems>
+				<core:Item text="{ PRODUCT_ID }" />
+			</suggestionItems>
+         <core:Item xmlns:core="sap.ui.core" key="PRODUCT_ID"></core:Item>
+		</Input>
+   </VBox>
+   <VBox  class="S1" >
+    <Label text="Unique ID" required="true" design="Bold"   class="UCS" ></Label>
+    	<Input
+          class="CP" 
+          width="15.5rem"
+			id="productInput1"
+         type="Text"
+			textFormatMode="KeyValue"
+			placeholder="Enter Unique ID"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequestForID"
+         suggestionItems="{path: '/items'}">
+			<suggestionItems>
+				<core:Item text="{ID}" />
+			</suggestionItems>
+         <core:Item xmlns:core="sap.ui.core" key="ID"></core:Item>
+		</Input>
+   </VBox>
+      </HBox>
+  </VBox>
+        </HBox>
+        <HBox >
+        	<VBox class="sapUiSmallMargin">
+		<Label text= 'CreatedOn'  labelFor="DRS1"/>
+		<DateRangeSelection
+      width="120%"
+			id="DRS1"
+			class="DRS1"
+         displayFormat="MM/dd/yyyy"
+			value= "{
+				'type': 'sap.ui.model.type.DateInterval',
+				'formatOptions': {
+					'pattern': 'yyyy/MM/dd'
+				},
+				'parts': [
+					{
+						'type': 'sap.ui.model.type.Date',
+						'path': '/start'
+					},
+					{
+						'type': 'sap.ui.model.type.Date',
+						'path': '/end'
+					}
+				]
+			}"
+			change="handleChange"/>
+         </VBox>
+        <HBox class="BOX">
+       <Button text="Go" type="Emphasized" press="onGo" class="BT1" ></Button>
+       <Button text="Reset" type="Neutral" press="onClick"  class="BT1"     ></Button>
+      </HBox>
+        </HBox>
+    </uxap:headerContent>
+    <uxap:sections>
+    <uxap:ObjectPageSection >
+    </uxap:ObjectPageSection>
+    
+    
+    <uxap:ObjectPageSection >
+    <uxap:heading>
+     <HBox class="BT" >
+   <Button text="Download Template" type="Default" press="DownLoad"  ></Button>
+   <unified:FileUploader id="Fileupload" 
+         fileType="XLSX,xlsx" 
+         buttonOnly="true"
+         class="Emp"
+         buttonText="Browse"
+         icon="sap-icon://arrow-top" 
+         uploadOnChange="true" 
+         change="onUpload">
+         </unified:FileUploader>
+        <!-- <Button text="Browse" type="Emphasized" press="Browse"  ></Button> -->
+         <Button text="CreateOrder" type="Default" press="CreateOrder"  ></Button>
+   </HBox>
+    </uxap:heading>
+    <uxap:ObjectPageSubSection >
+    
+   <VBox fitContainer="true" class="Tab">
+  
+				 <Table  id="tab1"
+             mode="SingleSelectMaster"
+             class="Tab"
+             selectionChange="onDetails"            
+             items="{
+                    path: '/aItems',
+                    sorter: {
+                        path: 'ID',
+                        descending: false
+                    }
+                }"
+             >
+                 <columns>
+          <Column >
+          <Text text="{i18n>col1}" id="UnitDes1"></Text>
+          
+          </Column>
+             <Column >
+          <Text text="{i18n>col2}"></Text>
+          </Column>
+             <Column >
+          <Text text="{i18n>col3}"></Text>
+          </Column>
+
+          <Column >
+          <Text text="{i18n>col4}"></Text>
+          </Column>
+          
+          </columns>
+             <items>
+          <ColumnListItem type="Active" press=" onDetails" >
+          <cells>
+        <Text text="{ID}" />
+            <Text text="{UNIQUE_ID}"></Text>
+            <Text text="{QUANTITY}"></Text>
+            <Text text="{DATE}"></Text>
+          </cells>
+          </ColumnListItem>
+          </items>
+				  </Table>
+			</VBox>
+    </uxap:ObjectPageSubSection>
+  
+    </uxap:ObjectPageSection>
+    </uxap:sections>
+    </uxap:ObjectPageLayout>
+    </Page>
+</mvc:View>

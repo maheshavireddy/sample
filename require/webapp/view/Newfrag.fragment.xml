@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <Dialog  class="NewFrag" title="CREATE" >
+    <content>
+    <f:SimpleForm >
+    <f:content>
+        <Label text="PAGEID"/>
+        <Input  id="PAGE" type= "Number" />
+
+        <Label text="DESCRIPTION"/>
+        <Input  id="DESCR" type="Text" />
+
+        <Label text="PARENTNODEID"/>
+        <Input  id="PAREN" type="Number" />
+
+        <Label text="HEIRARCHYLEVEL"></Label>
+        <Input id="HEIGH" type="Number"></Input>
+</f:content>
+    </f:SimpleForm>
+        </content>
+        <Label text=""/>
+        <beginButton>
+         <Button  id="btn" text="Save" type="Accept" press="onAdd"></Button>
+        </beginButton>
+        <endButton>
+          <Button text="close" type="Reject" press="onClose"></Button>
+        </endButton>
+       
+      
+        
+</Dialog>
+</core:FragmentDefinition>

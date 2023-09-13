@@ -1,0 +1,55 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="require.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content />
+        	<OverflowToolbar id="otb1">
+	
+		<ToolbarSpacer/>
+        <core:Icon src= "sap-icon://arrow-right" press="onNav"></core:Icon>
+		<Button text="Add" type="Transparent" press="onCreate"/>
+		<Button text="Edit" type="Transparent" press="onUpdate"/>
+        <Button text="Delete" type="Transparent" press="onDelete"/>
+	</OverflowToolbar>
+        	 <Table  id="tab1"
+             mode="SingleSelect"
+             class="Tab"
+             sticky="ColumnHeaders"
+              items="{
+                    path: '/aItems',
+                    sorter: {
+                        path: 'ID',
+                        descending: false
+                    }
+                }"          
+             >
+                 <columns>
+          <Column >
+          <Text text="PAGEID" ></Text>
+          
+          </Column>
+             <Column >
+          <Text text="DESCRIPTION"></Text>
+          </Column>
+             <Column >
+          <Text text="PARENTNODEID"></Text>
+          </Column>
+
+          <Column >
+          <Text text="HEIRARCHYLEVEL"></Text>
+          </Column>
+          
+          </columns>
+             <items>
+          <ColumnListItem type="Active" press="onDetails" >
+          <cells>
+            <Text text="{PAGEID}" />
+            <Text text="{DESCRIPTION}"></Text>
+            <Text text="{PARENTNODEID}"></Text>
+            <Text text="{HEIRARCHYLEVEL}"></Text>
+          </cells>
+          </ColumnListItem>
+          </items>
+				  </Table>
+    </Page>
+</mvc:View>

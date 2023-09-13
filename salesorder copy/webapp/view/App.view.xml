@@ -1,0 +1,21 @@
+<mvc:View controllerName="salesorder.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+    <App id="app">
+
+    	<f:FlexibleColumnLayout id="flexibleColumnLayout"  stateChange="onStateChanged" backgroundDesign="Solid">
+		<f:beginColumnPages>
+			<mvc:XMLView id="beginView" viewName="salesorder.view.View1"/>
+		</f:beginColumnPages>
+        <f:midColumnPages>
+			<mvc:XMLView id="MidView" viewName="salesorder.view.Details"/>
+		</f:midColumnPages>
+        	</f:FlexibleColumnLayout>
+    </App>
+</mvc:View>
+
+
+
+

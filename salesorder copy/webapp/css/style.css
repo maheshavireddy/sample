@@ -1,0 +1,66 @@
+/* Enter your custom styles here */
+
+
+
+
+.ALETTER {
+    font-weight: lighter;
+}
+.log{
+    width:30%;
+}
+.CreateDialog{
+    width:30%;
+}
+/* .UCS{
+    
+ margin-right: 10px;
+} */
+
+/* .UT{
+   
+ margin-right: 10px  !important;
+} */
+
+/* .CP{
+    margin-right: 10px !important;
+} */
+
+.BOX{
+    align-items: stretch;
+    margin-right: 10px;
+    margin-top: 17px;
+    /* margin-left: 25px; */
+}
+.BT1{
+    margin-left: 5px;
+}
+
+.FontText{
+    font-weight: lighter !important;
+}
+
+.DetailsFont{
+    font-weight: lighter;
+}
+.DetailsHead{
+    font-weight: bold;
+}
+.CopyDialog{
+    width:30%;
+}
+.inputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .inputContainer > * {
+    flex: 1 1 200px;
+  }
+  .head{
+    padding:0px !important;
+  }
+  
